@@ -5,6 +5,7 @@ import userRoutes from "./routes/UserRoutes";
 import productRoutes from "./routes/ProductRoutes";
 import adminRoutes from "./routes/AdminRoutes";
 import SaleRoutes from "./routes/SaleRoutes"
+import chatRoutes from "./routes/ChatRoutes";
 
 dotenv.config();
 
@@ -17,3 +18,4 @@ app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/sales",SaleRoutes);
+app.use("/api/chat", chatRoutes);
