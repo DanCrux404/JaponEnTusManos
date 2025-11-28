@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { getProducts } from "../../services/products";
-import {getSalesByUserId} from "../../services/sales"
+import { getSalesByUserId } from "../../services/sales"
 import ProductCard from "../../components/ProductCard";
 import Navbar from "../../components/Navbar";
 import "../../styles/ProductCard.css";
 import { updateUser } from "../../services/users";
 import EditProfileModal from "../../components/EditProfileModal";
-import "../../styles/userSales.css"
+import "../../styles/userSales.css";
+import Chat from "../../components/Chat";
 
 function UserHome() {
   const [user, setUser] = useState(null);
@@ -173,14 +174,14 @@ function UserHome() {
                   <p>Estado: {sale.PaymentStatus}</p>
                   <p>Método: {sale.PaymentMethod}</p>
                 </div>
-{sale.Items && sale.Items.map(item => {
-  const prod = products.find(p => p.ProductID === item.ProductID);
-  return (
-    <div key={item.SaleItemID} className="user-sale-item">
-      {prod ? prod.ProductName : `Producto ${item.ProductID}`} x {item.Quantity} - ${item.UnitPrice}
-    </div>
-  );
-})}
+                {sale.Items && sale.Items.map(item => {
+                  const prod = products.find(p => p.ProductID === item.ProductID);
+                  return (
+                    <div key={item.SaleItemID} className="user-sale-item">
+                      {prod ? prod.ProductName : `Producto ${item.ProductID}`} x {item.Quantity} - ${item.UnitPrice}
+                    </div>
+                  );
+                })}
 
               </div>
             ))}
@@ -191,6 +192,8 @@ function UserHome() {
           </p>
         )}
       </div>
+
+      {user && <Chat userID={user.UserID} />}
 
     </div>
   );

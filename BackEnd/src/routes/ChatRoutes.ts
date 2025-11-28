@@ -7,5 +7,6 @@ const controller = new ChatController();
 router.post("/create-room", controller.createRoom);
 router.get("/messages/:roomID", controller.getMessages);
 router.post("/send", controller.sendMessage);
+router.get("/rooms", controller.getAllRooms);
 
 export default router;

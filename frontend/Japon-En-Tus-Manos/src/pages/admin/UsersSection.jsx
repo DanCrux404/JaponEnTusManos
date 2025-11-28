@@ -113,7 +113,7 @@ function UsersSection() {
           type="password"
           name="PasswordHash"
           placeholder="Contraseña"
-          value={formData.Password}
+          value={formData.PasswordHash}
           onChange={handleChange}
         />
         <button onClick={handleCreateOrUpdate}>

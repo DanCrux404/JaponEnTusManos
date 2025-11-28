@@ -76,7 +76,7 @@ function AdminsSection() {
           type="password"
           name="PasswordHash"
           placeholder="Contraseña"
-          value={formData.Password}
+          value={formData.PasswordHash}
           onChange={handleChange}
         />
         <button onClick={handleCreate}>Crear Admin</button>
