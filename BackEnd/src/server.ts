@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import { app } from "./app";
 import { createServer } from "http";
 import { Server } from "socket.io";
@@ -5,21 +8,20 @@ import { registerChatSocket } from "./Socket/ChatSocket";
 
 const PORT = process.env.PORT || 4000;
 
-// Crear servidor HTTP a partir de express
+// HTTP server
 const httpServer = createServer(app);
 
-// Crear Socket.IO encima del servidor HTTP
+// Socket.IO
 const io = new Server(httpServer, {
-    cors: {
-        origin: "*",
-        methods: ["GET", "POST"]
-    }
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
 });
 
-// Registrar eventos del chat
 registerChatSocket(io);
 
-// Iniciar servidor
+// Start server
 httpServer.listen(PORT, () => {
-    console.log(`Server with sockets running on http://localhost:${PORT}`);
+  console.log(`Server with sockets running on http://localhost:${PORT}`);
 });
