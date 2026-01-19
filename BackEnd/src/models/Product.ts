@@ -4,26 +4,26 @@ export class Product {
     public Description!: string;
     public ImageURL!: string;
     public Stock!: number;
-    public ProductId?: number;
+    public ProductID?: number;
     public CreatedAt?: string;
 
-    constructor(ProductName: string, Price: number, Description: string, ImageURL: string, Stock: number, ProductId?: number, CreatedAt?: string) {
+    constructor(ProductName: string, Price: number, Description: string, ImageURL: string, Stock: number, ProductID?: number, CreatedAt?: string) {
         this.ProductName = ProductName;
         this.Price = Price;
         this.Description = Description;
         this.ImageURL = ImageURL;
         this.Stock = Stock;
-        this.ProductId = ProductId;
+        this.ProductID = ProductID;
         this.CreatedAt = CreatedAt;
     }
 
     static fromDB(row: any): Product {
-        return new Product(row.ProductName, row.Price, row.Description, row.ImageURL, row.Stock, row.ProductId, row.CreatedAt);
+        return new Product(row.ProductName, row.Price, row.Description, row.ImageURL, row.Stock, row.ProductID, row.CreatedAt);
     }
 
     toJson() {
         return {
-            ProductId: this.ProductId,
+            ProductID: this.ProductID,
             ProductName: this.ProductName,
             Price: this.Price,
             Description: this.Description,

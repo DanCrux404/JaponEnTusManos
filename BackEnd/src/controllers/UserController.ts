@@ -56,13 +56,9 @@ export class UserController {
 
     updateUser = async (req: Request, res: Response) => {
         try {
-            const { UserId, Name, Email, Location, PasswordHash } = req.body;
+            const { UserID, Name, Email, Location, PasswordHash } = req.body;
 
-            if (!UserId) {
-                return res.status(400).json({ message: "UserId is needed" });
-            }
-
-            const user = new User(Name, Email, Location, PasswordHash, UserId);
+            const user = new User(Name, Email, Location, PasswordHash, UserID);
             const updatedUser = await this.service.update(user);
 
             if (!updatedUser) {

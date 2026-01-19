@@ -1,0 +1,56 @@
+/* Body: centrado vertical y horizontal */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ffe6f0, #fff7e6);
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* centra horizontal */
+  align-items: center;     /* centra vertical */
+}
+
+/* Contenedor del login */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px 35px;
+  background: #ffffffcc;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  text-align: center; /* centra texto dentro de la caja */
+  border-top: 5px solid #e60039;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centra elementos hijos */
+}
+
+/* Inputs y select */
+.login-container input,
+.login-container select {
+  width: 90%;
+  max-width: 350px;
+  padding: 12px 15px;
+  margin: 8px 0;
+  border: 2px solid #e60039;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+  text-align: center; /* centra texto dentro del input */
+}
+
+/* Botón */
+.login-container button {
+  width: 90%;
+  max-width: 350px;
+  padding: 12px;
+  margin-top: 20px;
+  background: #e60039;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}

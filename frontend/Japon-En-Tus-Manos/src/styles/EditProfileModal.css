@@ -1,0 +1,91 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-container {
+  background: #fffaf8;
+  border-radius: 20px;
+  padding: 30px 40px;
+  width: 400px;
+  text-align: center;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  border: 2px solid #e60039;
+  animation: slideUp 0.3s ease-out;
+}
+
+.modal-container h2 {
+  color: #b30026;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.modal-container input {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.modal-container input:focus {
+  border-color: #e60039;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.modal-buttons button {
+  width: 48%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modal-buttons .save {
+  background: #e60039;
+  color: white;
+}
+
+.modal-buttons .save:hover {
+  background: #cc0033;
+}
+
+.modal-buttons .cancel {
+  background: #f1f1f1;
+  color: #333;
+}
+
+.modal-buttons .cancel:hover {
+  background: #ddd;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

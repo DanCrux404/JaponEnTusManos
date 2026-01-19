@@ -1,0 +1,76 @@
+.users-section {
+  padding: 20px;
+}
+
+.users-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.user-card {
+  background: #fffaf8;
+  border: 2px solid #e60039;
+  border-radius: 12px;
+  padding: 15px;
+  min-width: 200px;
+  text-align: center;
+  font-family: 'Noto Sans JP', sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.user-card-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.user-card-buttons button {
+  width: 48%;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.user-card-buttons button:hover {
+  transform: scale(1.05);
+}
+
+.user-card-buttons button:first-child {
+  background-color: #e60039;
+  color: white;
+}
+
+.user-card-buttons button:last-child {
+  background-color: #f1f1f1;
+  color: #333;
+}
+
+.user-form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.user-form button {
+  background-color: #e60039;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.user-form button:hover {
+  background-color: #cc0033;
+  transform: scale(1.05);
+}

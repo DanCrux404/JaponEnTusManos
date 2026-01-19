@@ -1,0 +1,41 @@
+.sales-section {
+  display: flex;
+  flex-wrap: wrap;   /* permite que las tarjetas bajen a otra fila */
+  gap: 20px;         /* espacio entre tarjetas */
+  padding: 20px;
+  justify-content: flex-start;
+}
+
+.sale-card {
+  display: flex;
+  flex-direction: column; /* info de venta vertical */
+  width: 220px;           /* ancho de cada tarjeta */
+  background: #fffaf8;
+  border: 2px solid #e60039;
+  border-radius: 12px;
+  padding: 15px;
+  font-family: 'Noto Sans JP', sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.sale-card h3 {
+  margin: 0 0 10px 0;
+  color: #b30026;
+}
+
+.sale-info p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.sale-items {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sale-item {
+  font-size: 13px;
+  color: #333;
+}

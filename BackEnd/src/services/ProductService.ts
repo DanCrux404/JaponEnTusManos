@@ -33,10 +33,10 @@ export class ProductService {
     async update(product: Product): Promise<Product | null> {
         const [result]: any = await pool.query(
             "UPDATE Product SET ProductName = ?, Price = ?, Description = ?, ImageURL = ?, Stock = ? WHERE ProductId = ?",
-            [product.ProductName, product.Price, product.Description, product.ImageURL, product.Stock, product.ProductId]
+            [product.ProductName, product.Price, product.Description, product.ImageURL, product.Stock, product.ProductID]
         );
 
-        const [rows]: any = await pool.query("SELECT * FROM Product WHERE ProductId = ?", [product.ProductId]);
+        const [rows]: any = await pool.query("SELECT * FROM Product WHERE ProductId = ?", [product.ProductID]);
 
         return Product.fromDB(rows[0]);
     }

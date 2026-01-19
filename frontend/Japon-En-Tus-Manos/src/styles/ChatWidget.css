@@ -1,0 +1,73 @@
+.chat-widget {
+  width: 350px;
+  height: 380px;           /* 🔥 MÁS BAJO (antes 450px) */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.chat-header {
+  text-align: center;
+  padding: 10px;
+  background: #b30026;
+  color: white;
+  font-weight: bold;
+}
+
+/* Área de mensajes */
+.chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+/* Cada burbuja de mensaje */
+.message {
+  margin: 5px 0;
+}
+
+.message span {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+/* Mensaje del usuario */
+.message.user {
+  text-align: right;
+}
+
+.message.user span {
+  background: #ffd1dc;
+}
+
+/* Mensaje del admin */
+.message.admin {
+  text-align: left;
+}
+
+.message.admin span {
+  background: #e6e6e6;
+}
+
+/* Input */
+.chat-input-area {
+  padding: 10px;
+  display: flex;
+  gap: 8px;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 8px;
+}
+
+.chat-input-area button {
+  padding: 8px 15px;
+}

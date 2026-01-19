@@ -56,13 +56,13 @@ export class ProductController {
 
     updateProduct = async (req: Request, res: Response) => {
         try {
-            const { ProductId, ProductName, Price, Description, ImageURL, Stock } = req.body;
+            const { ProductID, ProductName, Price, Description, ImageURL, Stock } = req.body;
 
-            if (!ProductId) {
+            if (!ProductID) {
                 return res.status(400).json({ message: "Product id is needed" });
             }
 
-            const product = new Product(ProductName, Price, Description, ImageURL, Stock, ProductId);
+            const product = new Product(ProductName, Price, Description, ImageURL, Stock, ProductID);
             const updatedProduct = await this.service.update(product);
 
             if (!updatedProduct) {

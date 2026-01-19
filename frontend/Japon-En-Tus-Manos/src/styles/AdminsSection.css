@@ -1,0 +1,46 @@
+.admins-section {
+  padding: 20px;
+}
+
+.admins-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.admin-card {
+  background: #fffaf8;
+  border: 2px solid #e60039;
+  border-radius: 12px;
+  padding: 15px;
+  min-width: 180px;
+  text-align: center;
+  font-family: 'Noto Sans JP', sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.admin-form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.admin-form button {
+  background-color: #e60039;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin-form button:hover {
+  background-color: #cc0033;
+  transform: scale(1.05);
+}

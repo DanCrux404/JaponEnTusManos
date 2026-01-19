@@ -9,12 +9,17 @@ export class SaleController {
     createSale = async (req: Request, res: Response) => {
         try {
             const { UserID, Total, PaymentStatus, PaymentMethod, Items } = req.body;
+            
+            console.log("Body recibido:", req.body);
+            console.log("UserID extraído:", UserID); 
 
             if (!Items || !Array.isArray(Items) || Items.length === 0) {
                 return res.status(400).json({ message: "Sale must include at least one item" });
             }
 
             const sale = new Sale(UserID, Total, PaymentStatus, PaymentMethod);
+            console.log("Sale creado:", sale);
+            console.log("sale.UserID:", sale.UserID);
             const saleItems = Items.map((i: any) => new SaleItem(0, i.ProductID, i.Quantity, i.UnitPrice));
 
             const newSale = await this.service.create(sale, saleItems);

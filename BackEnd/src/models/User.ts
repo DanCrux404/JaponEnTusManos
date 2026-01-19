@@ -3,11 +3,11 @@ export class User {
     public Email: string;
     public Location: string;
     public PasswordHash: string;
-    public UserId?: number;
+    public UserID?: number;
     public CreatedAt?: string;
 
-    constructor(Name: string, Email: string, Location: string, PasswordHash: string, UserId?: number, CreatedAt?: string) {
-        this.UserId = UserId;
+    constructor(Name: string, Email: string, Location: string, PasswordHash: string, UserID?: number, CreatedAt?: string) {
+        this.UserID = UserID;
         this.Name = Name;
         this.Email = Email;
         this.Location = Location;
@@ -16,12 +16,12 @@ export class User {
     }
 
     static fromDB(row: any): User {
-        return new User(row.Name, row.Email, row.Location, row.PasswordHash, row.UserId, row.CreatedAt);
+        return new User(row.Name, row.Email, row.Location, row.PasswordHash, row.UserID, row.CreatedAt);
     }
 
     toJson() {
         return {
-            UserId: this.UserId,
+            UserID: this.UserID,
             Name: this.Name,
             Email: this.Email,
             Location: this.Location,

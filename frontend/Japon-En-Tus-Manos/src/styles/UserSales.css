@@ -1,0 +1,41 @@
+.user-sales-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: flex-start;
+}
+
+.user-sale-card {
+  display: flex;
+  flex-direction: column;
+  width: 220px;
+  background: #fffaf8;
+  border: 2px solid #e60039;
+  border-radius: 12px;
+  padding: 15px;
+  font-family: 'Noto Sans JP', sans-serif;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.user-sale-card h3 {
+  margin: 0 0 10px 0;
+  color: #b30026;
+}
+
+.user-sale-info p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.user-sale-items {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-sale-item {
+  font-size: 13px;
+  color: #333;
+}
