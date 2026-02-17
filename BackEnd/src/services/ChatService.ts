@@ -4,28 +4,26 @@ import { Message } from "../models/Message";
 
 export class ChatService {
     async createRoom(userID: number): Promise<ChatRoom> {
-        // Buscar sala existente
         const [existing]: any = await pool.query(
-            "SELECT * FROM ChatRoom WHERE UserID = ? LIMIT 1",
+            "SELECT * FROM ChatRoom WHERE UserID = ? ORDER BY CreatedAt DESC LIMIT 1",
             [userID],
         );
 
         if (existing.length > 0) {
             console.log(
-                `✅ Sala existente encontrada para usuario ${userID}:`,
+                ` Sala existente encontrada para usuario ${userID}:`,
                 existing[0].RoomID,
             );
             return ChatRoom.fromDB(existing[0]);
         }
 
-        // Crear nueva sala solo si no existe
         const [result]: any = await pool.query(
             "INSERT INTO ChatRoom (UserID) VALUES (?)",
             [userID],
         );
 
         console.log(
-            `🆕 Nueva sala creada para usuario ${userID}:`,
+            ` Nueva sala creada para usuario ${userID}:`,
             result.insertId,
         );
         return new ChatRoom(userID, result.insertId);
@@ -59,16 +57,23 @@ export class ChatService {
             result.insertId,
         );
     }
+    
     async getAllRooms(): Promise<ChatRoom[]> {
-        // Agrupa por UserID para evitar duplicados
         const [rows]: any = await pool.query(`
-            SELECT RoomID, UserID, CreatedAt
-            FROM ChatRoom
-            GROUP BY UserID
-            ORDER BY CreatedAt DESC
+            SELECT cr.RoomID, cr.UserID, cr.CreatedAt
+            FROM ChatRoom cr
+            JOIN (
+                SELECT UserID, MAX(CreatedAt) AS maxCreated
+                FROM ChatRoom
+                GROUP BY UserID
+            ) latest
+            ON cr.UserID = latest.UserID
+            AND cr.CreatedAt = latest.maxCreated
+            ORDER BY cr.CreatedAt DESC
         `);
-
-        console.log(`📋 Total de salas únicas: ${rows.length}`);
+    
+        console.log(` Total de salas únicas: ${rows.length}`);
         return rows.map((r: any) => ChatRoom.fromDB(r));
     }
+
 }
